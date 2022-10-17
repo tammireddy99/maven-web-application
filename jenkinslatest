@@ -1,4 +1,4 @@
-node {
+node('amazonnodes') {
   def mavenHome = tool name: 'maven3.8.6'    
   stage('CheckoutCode'){
   git credentialsId: '8d6f470e-9a49-4886-b674-91af086c45e1', url: 'https://github.com/tammireddy99/maven-web-application.git' 
