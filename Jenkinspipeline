@@ -1,4 +1,7 @@
 node{
+parameters {
+  choice choices: ['master', 'development', 'test '], description: 'parameter choice', name: 'branch'
+}
 
 def mavenHome = tool name: "maven3.8.6"
 
@@ -14,7 +17,7 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
 
 
 stage('CheckOutCode'){
-git branch: 'development', credentialsId: '166c70a2-1df5-4993-a566-0a795862da8c', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
+git branch: "${parms.branch}", credentialsId: '166c70a2-1df5-4993-a566-0a795862da8c', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
 }
 
 stage('Build'){
