@@ -1,7 +1,4 @@
 node{
-parameters {
-  choice choices: ['master', 'development', 'test '], description: 'parameter choice', name: 'branch'
-}
 
 def mavenHome = tool name: "maven3.8.6"
 
